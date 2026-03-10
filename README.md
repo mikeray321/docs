@@ -1,5 +1,7 @@
 # my-sysadmin-docs
-my-sysadmin-docs
+
+*Tamdiu discendum est, quoad vivas, quemadmodum vivas*.
+- Seneca
 
 **Purpose**:
 This repo solves the problem of knowledge sharing. 
