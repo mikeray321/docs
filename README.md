@@ -3,8 +3,6 @@
 *Tamdiu discendum est, quoad vivas, quemadmodum vivas*.
 -Seneca
 
-    ### Project Architecture
-​```mermaid
 graph LR
     subgraph Local_Environment [Developer Machine]
         A[Local Code] --> B[Git Commit/Push]
@@ -29,4 +27,3 @@ graph LR
     end
 
     H --> A
-    ​```
