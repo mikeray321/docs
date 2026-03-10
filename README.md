@@ -12,6 +12,7 @@ Please try copying this extremely simple version to see if *any* diagram renders
 graph TD
     Start --> GitHub --> Success
 
+```mermaid
 graph TB
     subgraph "Your Laptop (e.g., Mac/Windows/Linux)"
         subgraph "A k3d or kind 'Node' (Docker Container 1)"
