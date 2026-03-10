@@ -4,61 +4,34 @@
 -Seneca
 
 ```mermaid
-### A "Bulletproof" Test
-Please try copying this extremely simple version to see if *any* diagram renders. If this works, we can add the complexity back in:
 graph TB
-    subgraph "Your Laptop (e.g., Mac/Windows/Linux)"
-        subgraph "A k3d or kind 'Node' (Docker Container 1)"
-            subgraph CP1[Control Plane Node A]
-                direction TB
-                APIServer1[kube-apiserver]
-                etcd1[etcd (Quorum Node)]
-                Scheduler1[kube-scheduler]
-            end
-        end
+  subgraph "Control Plane"
+    API[kube-apiserver]
+    ETCD[(etcd)]
+    SCH[kube-scheduler]
+    CM[kube-controller-manager]
+    
+    API --- ETCD
+    API --- SCH
+    API --- CM
+  end
 
-        subgraph "A k3d or kind 'Node' (Docker Container 2)"
-            subgraph CP2[Control Plane Node B]
-                direction TB
-                APIServer2[kube-apiserver]
-                etcd2[etcd (Quorum Node)]
-                Scheduler2[kube-scheduler]
-            end
-        end
+  subgraph "Node 1 (Worker)"
+    K1[kubelet]
+    P1[kube-proxy]
+    D1[Container Runtime]
+    
+    K1 --- D1
+  end
 
-        subgraph "A k3d or kind 'Node' (Docker Container 3)"
-            subgraph CP3[Control Plane Node C]
-                direction TB
-                APIServer3[kube-apiserver]
-                etcd3[etcd (Quorum Node)]
-                Scheduler3[kube-scheduler]
-            end
-        end
+  subgraph "Node 2 (Worker)"
+    K2[kubelet]
+    P2[kube-proxy]
+    D2[Container Runtime]
+    
+    K2 --- D2
+  end
 
-        subgraph "A k3d or kind 'Node' (Docker Container 4)"
-            direction TB
-            subgraph W1[Worker Node A]
-                Kubelet1[Kubelet]
-                Proxy1[kube-proxy]
-                PodA[Pod 1 (e.g., WebApp)]
-            end
-        end
-
-        subgraph "A k3d or kind 'Node' (Docker Container 5)"
-            direction TB
-            subgraph W2[Worker Node B]
-                Kubelet2[Kubelet]
-                Proxy2[kube-proxy]
-                PodB[Pod 2 (e.g., WebApp Replica)]
-            end
-        end
-
-        %% Connections
-        LB[Simulated Internal LoadBalancer] -.-> CP1
-        LB -.-> CP2
-        LB -.-> CP3
-        etcd1 --- etcd2
-        etcd2 --- etcd3
-        W1 -.-> LB
-        W2 -.-> LB
+  API === K1
+  API === K2
     end
