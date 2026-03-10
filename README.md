@@ -30,6 +30,7 @@ flowchart TD
 
     class API1,API2,API3,W1,W2,W3 k8s;
     class ETCD storage;
+```
 
 ### Edge Computing Architecture (k3s Style)
 
