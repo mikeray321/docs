@@ -3,12 +3,10 @@
 *Tamdiu discendum est, quoad vivas, quemadmodum vivas*.
 - Seneca
 
-**Purpose**:
-This repo solves the problem of knowledge sharing. 
+[//] **Purpose**:
 
-**Requirements**: n/a
+[//] **Requirements**: 
 
-**Usage**: 
-$ glow README.md
+[//] **Usage**: 
 
-**Security Note**: n/a
+[//] **Security Note**: 
